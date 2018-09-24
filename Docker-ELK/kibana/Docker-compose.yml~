@@ -1,0 +1,28 @@
+version: '2'
+services: 
+ filebeat:  
+  build: /home/shopclues/Desktop/Docker-ELK/filebeat/  
+  container_name: filebeat
+  network_mode: "host"      
+  tty: true 
+ logstash:  
+  build: /home/shopclues/Desktop/Docker-ELK/logstash/  
+  container_name: logstash
+  network_mode: "host"  
+  ports:    
+    - "5044:5044"  
+  tty: true
+ elasticsearch:
+  build: /home/shopclues/Desktop/Docker-ELK/elasticsearch/
+  container_name: elasticsearch
+  network_mode: "host"
+  ports:
+    - "9200:9200"
+  tty: true
+ kibana:
+  build: /home/shopclues/Desktop/Docker-ELK/kibana/
+  container_name: kibana
+  network_mode: "host" 
+  ports:
+    - "5601:5601"
+  tty: true
